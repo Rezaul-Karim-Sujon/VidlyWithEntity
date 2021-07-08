@@ -195,6 +195,18 @@
     <Compile Include="Migrations\202107080442297_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>202107080442297_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107080505466_SetNameOfMembershipType.cs" />
+    <Compile Include="Migrations\202107080505466_SetNameOfMembershipType.Designer.cs">
+      <DependentUpon>202107080505466_SetNameOfMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107080531509_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\202107080531509_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>202107080531509_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107080600555_SetNameOfMembershipType1.cs" />
+    <Compile Include="Migrations\202107080600555_SetNameOfMembershipType1.Designer.cs">
+      <DependentUpon>202107080600555_SetNameOfMembershipType1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -300,6 +312,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107080442297_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>202107080442297_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107080505466_SetNameOfMembershipType.resx">
+      <DependentUpon>202107080505466_SetNameOfMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107080531509_AddNameToMembershipType.resx">
+      <DependentUpon>202107080531509_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107080600555_SetNameOfMembershipType1.resx">
+      <DependentUpon>202107080600555_SetNameOfMembershipType1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
