@@ -215,9 +215,22 @@
     <Compile Include="Migrations\202107090413401_InitialModel1.Designer.cs">
       <DependentUpon>202107090413401_InitialModel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107090511048_AddPropertiesOfMovie.cs" />
+    <Compile Include="Migrations\202107090511048_AddPropertiesOfMovie.Designer.cs">
+      <DependentUpon>202107090511048_AddPropertiesOfMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107090513200_PopulateGenre.cs" />
+    <Compile Include="Migrations\202107090513200_PopulateGenre.Designer.cs">
+      <DependentUpon>202107090513200_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107090522181_PopulateMovie.cs" />
+    <Compile Include="Migrations\202107090522181_PopulateMovie.Designer.cs">
+      <DependentUpon>202107090522181_PopulateMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -335,6 +348,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107090413401_InitialModel1.resx">
       <DependentUpon>202107090413401_InitialModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107090511048_AddPropertiesOfMovie.resx">
+      <DependentUpon>202107090511048_AddPropertiesOfMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107090513200_PopulateGenre.resx">
+      <DependentUpon>202107090513200_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107090522181_PopulateMovie.resx">
+      <DependentUpon>202107090522181_PopulateMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
