@@ -63,6 +63,7 @@ namespace VidlyWithEntity.Controllers
                 return HttpNotFound();
             return View(customer);
         }
+        // Edit
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
