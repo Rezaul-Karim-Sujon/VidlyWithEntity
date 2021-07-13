@@ -16,6 +16,6 @@ namespace VidlyWithEntity.Models
         
         public string Name { get; set; }
         public static readonly byte Unknown = 0;
-        public static readonly byte PasAsYouGo = 0;
+        public static readonly byte PayAsYouGo = 1;
     }
 }
