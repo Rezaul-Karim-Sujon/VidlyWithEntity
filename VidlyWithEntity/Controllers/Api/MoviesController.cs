@@ -1,9 +1,12 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using VidlyWithEntity.App_Start;
+using VidlyWithEntity.Dtos;
 using VidlyWithEntity.Models;
 
 namespace VidlyWithEntity.Controllers.Api
@@ -11,49 +14,52 @@ namespace VidlyWithEntity.Controllers.Api
     public class MoviesController : ApiController
     {
         private ApplicationDbContext _context;
+        private MapperConfiguration config;
+        private IMapper iMapper;
         public MoviesController()
         {
             _context = new ApplicationDbContext();
+            config = new AutoMapperConfiguration().Configure();
+            iMapper = config.CreateMapper();
         }
         // GET /api/movies
-        public IEnumerable<Movie> GetMovies()
+        public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList();
+            return _context.Movies.ToList().Select(iMapper.Map<Movie,MovieDto>);
         }
 
         // GET /api/movies/1
-        public Movie GetMovie(int id)
+        public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movie == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return movie;
+                return NotFound();
+            return Ok(iMapper.Map<Movie, MovieDto>(movie));
         }
 
         // POST/api/movies
         [HttpPost]
-        public Movie CreateMovie(Movie movie)
+        public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
+            var movie = iMapper.Map<MovieDto, Movie>(movieDto);
             _context.Movies.Add(movie);
             _context.SaveChanges();
-            return movie;
+            movieDto.Id = movie.Id;
+            return Created(new Uri(Request.RequestUri + "/"+ movie.Id),movieDto);
         }
 
         // PUT /api/movies/1
         [HttpPut]
-        public void UpdateMovie(int id,Movie movie)
+        public void UpdateMovie(int id,MovieDto movieDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movieInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-            movieInDb.Name = movie.Name;
-            movieInDb.GenreId = movie.GenreId;
-            movieInDb.ReleaseDate = movie.ReleaseDate;
-            movieInDb.NumberInStock = movie.NumberInStock;
+            iMapper.Map(movieDto, movieInDb);
             _context.SaveChanges();
         }
 
