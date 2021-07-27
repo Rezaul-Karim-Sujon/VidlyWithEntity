@@ -56,13 +56,13 @@ namespace VidlyWithEntity
 
             app.UseFacebookAuthentication(
                appId: "1484613891884256",
-               appSecret: "12345");
+               appSecret: "f91ff0e9215bfc259df92dfe53a272d5");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "436025590896-4ogatcrkts8u3qduetb4ftdl9ckref8h.apps.googleusercontent.com",
+                ClientSecret = "ig0XF0Irr_KrD8TTqPaz4RqO"
+            });
         }
     }
 }
