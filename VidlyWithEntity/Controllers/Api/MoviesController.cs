@@ -24,10 +24,15 @@ namespace VidlyWithEntity.Controllers.Api
             iMapper = config.CreateMapper();
         }
         // GET /api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(string query = null)
         {
-            return _context.Movies
+            var movieQuery = _context.Movies
                 .Include(m=>m.Genre)
+                .Where(m=>m.NumberAvailable>0);
+            if (!String.IsNullOrWhiteSpace(query))
+                movieQuery = movieQuery
+                    .Where(m => m.Name.Contains(query));
+            return movieQuery
                 .ToList()
                 .Select(iMapper.Map<Movie,MovieDto>);
         }
