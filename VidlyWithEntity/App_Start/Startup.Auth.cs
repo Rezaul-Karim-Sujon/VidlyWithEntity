@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -55,13 +56,13 @@ namespace VidlyWithEntity
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "1484613891884256",
-               appSecret: "12345");
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
             //f91ff0e9215bfc259df92dfe53a272d5
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "436025590896-4ogatcrkts8u3qduetb4ftdl9ckref8h.apps.googleusercontent.com",
-                ClientSecret = "12345"
+                ClientId = ConfigurationManager.AppSettings["GoogleAuthId"],
+                ClientSecret = ConfigurationManager.AppSettings["GoogleAuthSecret"]
                 //ig0XF0Irr_KrD8TTqPaz4RqO
             });
         }
